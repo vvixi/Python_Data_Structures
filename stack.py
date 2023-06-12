@@ -1,5 +1,6 @@
-class Node:
+# Linked List Queue in Python 3.10 by vvixi
 
+class Node:
     def __init__(self, val: str):
         self.val = val
         self.next = None
