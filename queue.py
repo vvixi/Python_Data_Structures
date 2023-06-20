@@ -1,13 +1,13 @@
 # Linked List Queue in Python 3.10 by vvixi
-
-class Node:
+class llNode:
 
     def __init__(self, val: str):
+
         self.val = val
         self.next = None
-        self.prev = None
 
     def __repr__(self):
+        
         return f'{self.val} -> {self.next}'
 
 class LinkedList:
@@ -16,12 +16,14 @@ class LinkedList:
     are O(1).'''    
     
     def __init__(self):
+        
         self.length = 0
         self.head = None
         self.tail = None
 
     def enqueue(self, val):
-        node = Node(val)
+        
+        node = llNode(val)
         self.length += 1
 
         # set head and tail if there isn't one
@@ -39,13 +41,17 @@ class LinkedList:
         print(f'New tail added: {self.tail.val} \t {self.head}\n')
     
     def dequeue(self):
+        
         # remove the head, update the next node to the head
         prev = self.head
         self.head = prev.next
-        
+        self.length -= 1
+
         print(f'Head popped: {prev.val} : \t {self.head}\n')
+        return prev
 
     def search(self, val):
+        
         # this method demonstrates traversal
         current = self.head
         while current != None:
@@ -58,12 +64,11 @@ class LinkedList:
 
         print(f'Node: {val} was not found\n')
 
-queue = LinkedList()
-queue.enqueue('A')
-queue.enqueue('B')
-queue.enqueue('C')
-queue.enqueue('D')
-queue.search('C')
-queue.search('Z')
-queue.dequeue()
-queue.dequeue()
+q = LinkedList()
+q.enqueue(1)
+q.enqueue(2)
+q.enqueue(3)
+q.enqueue(4)
+q.enqueue(5)
+q.dequeue()
+q.dequeue()
